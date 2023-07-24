@@ -10,7 +10,7 @@ from whisper.transcribe import transcribe
 from whisper.utils import (WriteSRT, WriteTXT, WriteVTT, optional_float,
                            optional_int, str2bool)
 
-from pyannote_whisper.utils import diarize_text, write_to_txt
+from pyannote_whisper.utils import diarize_text, write_to_txt, write_to_txt_gpt
 
 
 def cli():
@@ -124,7 +124,7 @@ def cli():
             diarization_result = pipeline(audio_path)
             filepath = os.path.join(output_dir, audio_basename + "_spk.txt")
             res = diarize_text(result, diarization_result)
-            write_to_txt(res, filepath)
+            write_to_txt_gpt(res, filepath)
 
 
 if __name__ == '__main__':

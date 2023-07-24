@@ -65,3 +65,10 @@ def write_to_txt(spk_sent, file):
         for seg, spk, sentence in spk_sent:
             line = f'{seg.start:.2f} {seg.end:.2f} {spk} {sentence}\n'
             fp.write(line)
+     
+            
+def write_to_txt_gpt(spk_sent, file):
+    with open(file, 'w') as fp:
+        for seg, spk, sentence in spk_sent:
+            line = f'{spk} {sentence}\n'
+            fp.write(line)
